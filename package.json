@@ -1,0 +1,59 @@
+{
+  "name": "dsh-whale-glass",
+  "version": "1.0.1",
+  "description": "鲸蓝玻璃：纯黑透明玻璃、蓝色鲸娘、图片上传与实时外观设置",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "locale",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "AI_INSTALL.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "ASSETS.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check lib/index.js && node --check lib/client.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yxx-z/dsh-whale-glass.git"
+  },
+  "homepage": "https://github.com/yxx-z/dsh-whale-glass#readme",
+  "bugs": {
+    "url": "https://github.com/yxx-z/dsh-whale-glass/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "theme",
+    "glass",
+    "wallpaper"
+  ]
+}
