@@ -1,6 +1,6 @@
 {
   "name": "dsh-whale-glass",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "鲸蓝玻璃：纯黑透明玻璃、蓝色鲸娘、图片上传与实时外观设置",
   "type": "module",
   "main": "lib/index.js",

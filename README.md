@@ -2,7 +2,7 @@
 
 为 **DeepSeek Harness 桌面版**提供纯黑背景、透明玻璃面板和蓝色鲸娘壁纸的独立插件。支持更换图片、调整透明度和位置，也可以随时关闭恢复原界面。
 
-**当前版本：1.0.1。已在 macOS 的 DeepSeek Harness Desktop 0.2.1-rc.3 上验证。** 其他 Harness 版本及 Windows / Linux 尚未实测；本插件不是 DeepSeek 网页版扩展，也不是官方产品。
+**当前版本：1.0.2。已在 macOS 的 DeepSeek Harness Desktop 0.2.1-rc.3 上验证。** 其他 Harness 版本及 Windows / Linux 尚未实测；本插件不是 DeepSeek 网页版扩展，也不是官方产品。
 
 [下载安装包](https://github.com/yxx-z/dsh-whale-glass/releases/latest) · [给 AI 的安装指南](AI_INSTALL.md) · [版本记录](CHANGELOG.md)
 
@@ -25,7 +25,7 @@
 
 安装通过 **Harness 自带的插件管理器**完成。不要将文件复制进应用安装包，也不要手工改写 profile 的插件配置。
 
-1. 打开 [Releases](https://github.com/yxx-z/dsh-whale-glass/releases/latest)，下载 `dsh-whale-glass-1.0.1.tgz`。不要把 GitHub 自动生成的 `Source code` 压缩包当成 npm 插件安装包。
+1. 打开 [Releases](https://github.com/yxx-z/dsh-whale-glass/releases/latest)，下载 `dsh-whale-glass-1.0.2.tgz`。不要把 GitHub 自动生成的 `Source code` 压缩包当成 npm 插件安装包。
 2. 将安装包保存在运行 Harness 的电脑上。可用同一 Release 的 `SHA256SUMS.txt` 核对文件完整性。
 3. 在 Harness 的插件管理入口中，将该 `.tgz` 文件的**绝对路径**作为安装目标并启用。若当前界面没有本地安装入口，把下面的安装提示交给 **Harness 内部能调用 `plugin_manager` 的 AI**。
 4. 等待安装结果成功。若返回要求重启，先结束正在运行的任务，再重启 Harness。
@@ -47,7 +47,7 @@ shasum -a 256 -c SHA256SUMS.txt
 请安装 DeepSeek Harness 插件「鲸蓝玻璃」。
 仓库：https://github.com/yxx-z/dsh-whale-glass
 先读取仓库的 README.md 和 AI_INSTALL.md，再执行安装。
-安装包绝对路径：<替换为本机 dsh-whale-glass-1.0.1.tgz 的真实绝对路径>
+安装包绝对路径：<替换为本机 dsh-whale-glass-1.0.2.tgz 的真实绝对路径>
 必须通过 Harness 原生 plugin_manager 安装和启用；先列出已安装 bundles，
 核对是否已安装 dsh-whale-glass。保留其他插件、聊天记录和个人设置。
 不要修改 app.asar、不要直接修改 profile 配置、不要绕过版本限制。
@@ -71,7 +71,7 @@ npm test
 npm pack
 ```
 
-`npm pack` 产出 `dsh-whale-glass-1.0.1.tgz`，再通过 Harness 插件管理器安装。本项目未发布到 npm registry，**不要使用裸包名从 npm 安装**。源码安装完成后的 JS 改动需要重载 / 重启 Harness，不能假定自动热更新。
+`npm pack` 产出 `dsh-whale-glass-1.0.2.tgz`，再通过 Harness 插件管理器安装。本项目未发布到 npm registry，**不要使用裸包名从 npm 安装**。源码安装完成后的 JS 改动需要重载 / 重启 Harness，不能假定自动热更新。
 
 ## 使用设置
 
@@ -82,7 +82,7 @@ npm pack
 | 启用背景 | 关闭后恢复之前的主题，不删除配置或图库 |
 | 图片不透明度 | 0–100%，越高图片越明显 |
 | 玻璃透明度 | 0–90%，越高面板越透 |
-| 玻璃模糊 | 0–40 px，仅用于适配的侧栏和输入容器 |
+| 玻璃模糊 | 0–40 px，仅用于侧栏及输入框卡片，不覆盖整行布局 |
 | 文字区暗幕 | 0–95%，越高文字背景越暗 |
 | 玻璃边缘高光 | 0–100% |
 | 按高度 · 可缩放 | 角色缩放 50–180% |

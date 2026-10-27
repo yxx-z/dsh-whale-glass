@@ -166,5 +166,9 @@ test('样式没有覆盖层和全局反色，0% 与 100% 透明度端点有效',
   assert.ok(css.includes('rgba(0,0,0,1.000)'));
   assert.ok(!css.includes('z-index')); assert.ok(!css.includes('position:fixed'));
   assert.ok(!css.includes('static-neutral')); assert.ok(css.includes('body[data-whale-glass]'));
+  // composerSeat / composerHero / composerStack 均是布局容器，只允许输入卡片获得模糊。
+  assert.ok(css.includes('[data-composer-card]'));
+  assert.ok(!css.includes('[class*="_composer"]'));
+  assert.ok(!css.includes('[class*="_inputCard"]'));
   assert.ok(client.__test.buildCss({ ...DEFAULTS, imageOpacity: 100 }).includes('rgba(0,0,0,0.000)'));
 });
