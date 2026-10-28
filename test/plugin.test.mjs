@@ -159,7 +159,29 @@ test('启动后异步主题同步不会产生黑底黑字，关闭不会被待�
   assert.equal(env.nodes.size, 0); assert.equal(env.layers.size, 1);
 });
 
-/** 背景只写 CSS；没有固定全屏覆盖层，也没有反转中性色阶。 */
+/** 验证旧配置升级及侧栏独立调节，不影响已有输入框参数。 */
+test('旧配置自动获得独立透明侧栏，侧栏内层不叠加底色', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'whale-sidebar-'));
+  try {
+    writeFileSync(join(dir, 'config.json'), JSON.stringify({ image: 'ocean', blur: 22, glassTransparency: 58 }));
+    const store = createStore(dir);
+    const config = store.read();
+    assert.equal(config.image, 'ocean');
+    assert.equal(config.sidebarTransparency, 100); assert.equal(config.sidebarBlur, 0);
+    store.save({ sidebarTransparency: 0, sidebarBlur: 10 });
+    assert.equal(store.read().blur, 22); assert.equal(store.read().glassTransparency, 58);
+    assert.throws(() => store.save({ sidebarTransparency: 101 }));
+    assert.throws(() => store.save({ sidebarBlur: -1 }));
+    const { client } = clientHarness();
+    assert.equal(client.__test.tokens(config)['--dsw-specific-sidebar-fill'].dark, 'transparent');
+    const css = client.__test.buildCss(config);
+    assert.ok(css.includes('background:rgba(4,7,12,0.000)'));
+    assert.ok(!css.includes('rgba(0,0,0,.94)'));
+    assert.ok(client.__test.buildCss(store.read()).includes('background:rgba(4,7,12,1.000)'));
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+/** 背景只写 CSS；没有固定全屏覆盖层，也没有反转全局色阶。 */
 test('样式没有覆盖层和全局反色，0% 与 100% 透明度端点有效', () => {
   const { client } = clientHarness();
   const css = client.__test.buildCss({ ...DEFAULTS, imageOpacity: 0 });

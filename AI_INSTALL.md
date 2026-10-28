@@ -4,10 +4,10 @@
 
 ## 已知事实
 
-- 包名：`dsh-whale-glass`，版本：`1.0.2`，bundle 内部 entry id：`whale-glass`。
+- 包名：`dsh-whale-glass`，版本：`1.0.3`，bundle 内部 entry id：`whale-glass`。
 - 仓库：<https://github.com/yxx-z/dsh-whale-glass>。
-- 固定版本安装包：<https://github.com/yxx-z/dsh-whale-glass/releases/download/v1.0.2/dsh-whale-glass-1.0.2.tgz>。
-- 版本对应的校验文件：<https://github.com/yxx-z/dsh-whale-glass/releases/download/v1.0.2/SHA256SUMS.txt>。
+- 固定版本安装包：<https://github.com/yxx-z/dsh-whale-glass/releases/download/v1.0.3/dsh-whale-glass-1.0.3.tgz>。
+- 版本对应的校验文件：<https://github.com/yxx-z/dsh-whale-glass/releases/download/v1.0.3/SHA256SUMS.txt>。
 - 已验证：macOS，DeepSeek Harness Desktop `0.2.1-rc.3`。不要声称兼容所有版本。
 - 零第三方运行依赖，没有安装脚本，没有构建步骤。不要额外安装全局 npm 包。
 - 本仓库没有发布到 npm registry。`npm install dsh-whale-glass` 不是本文的安装方法。
@@ -33,7 +33,7 @@
 例如下面仅为 macOS / Linux 路径格式示例，必须换成实际存在的文件：
 
 ```json
-{"action":"install_bundle","target":"/absolute/path/dsh-whale-glass-1.0.2.tgz","enabled":true}
+{"action":"install_bundle","target":"/absolute/path/dsh-whale-glass-1.0.3.tgz","enabled":true}
 ```
 
 源码目录安装也使用绝对路径，指向包含 `package.json` 和 `cordis.patch.yml` 的根目录；可能链接到源码，不要之后删除目录。
